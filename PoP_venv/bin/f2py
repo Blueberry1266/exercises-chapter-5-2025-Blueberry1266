@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/blueberry/Desktop/IC/IC MATH/Year 2/Term 1/MATH50009 Programming/Problem Sheet/exercises-chapter-5-2025-Blueberry1266/PoP_venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from numpy.f2py.f2py2e import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
