@@ -59,6 +59,7 @@ class Deque:
 
 class DequeIterator:
     """Iterator for Deque."""
+
     def __init__(self, deque, left):
         """Initialize iterator."""
         self.deque = deque
@@ -74,7 +75,7 @@ class DequeIterator:
         return length
 
     def __iter__(self):
-        """Iterator."""
+        """Make it an iterator."""
         return self
 
     def __next__(self):
