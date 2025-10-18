@@ -1,1 +1,0 @@
-from adt_examples.deque import Deque  # noqa F401
