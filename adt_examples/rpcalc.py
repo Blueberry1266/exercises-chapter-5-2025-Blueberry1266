@@ -43,4 +43,3 @@ class RPCalc:
             self.stack.append(sin(val1))
         else:
             raise NotImplementedError
-        
