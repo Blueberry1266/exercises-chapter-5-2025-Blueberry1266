@@ -2,7 +2,7 @@
 '''exec' "/Users/blueberry/Desktop/IC/IC MATH/Year 2/Term 1/MATH50009 Programming/Problem Sheet/exercises-chapter-5-2025-Blueberry1266/PoP_venv/bin/python" "$0" "$@"
 ' '''
 import sys
-from pygments.cmdline import main
+from flake8.main.cli import main
 if __name__ == '__main__':
     if sys.argv[0].endswith('.exe'):
         sys.argv[0] = sys.argv[0][:-4]
