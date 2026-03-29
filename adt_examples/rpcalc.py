@@ -15,7 +15,7 @@ class RPCalc:
         return self.stack.pop()
 
     def push(self, n):
-        """ Push an element."""
+        """Push an element."""
         if isinstance(n, Number):
             self.stack.append(n)
         elif n == "+":

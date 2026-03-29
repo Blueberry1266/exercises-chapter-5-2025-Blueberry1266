@@ -54,6 +54,7 @@ class Deque:
 
 
 class DequeIterator:
+    """Help iteration."""
 
     def __init__(self, deque):
         self.queue = deque.queue
