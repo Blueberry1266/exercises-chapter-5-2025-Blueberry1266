@@ -1,37 +1,46 @@
+"""Simulate Deque."""
 
 
 class Deque:
+    """Simulate Deque."""
 
     def __init__(self, n):
+        """Initialize Deque."""
         self.queue = [None] * n
-        self.left = 0
-        self.right = n-1
+        self.left = n-1
+        self.right = 0
 
     def append(self, x):
+        """Append an element to the right."""
         self.queue[self.right] = x
-        self.right = (self.right - 1) % len(self.queue)
+        self.right = (self.right + 1) % len(self.queue)
 
     def appendleft(self, x):
+        """Append an element to the left."""
         self.queue[self.left] = x
-        self.left = (self.left + 1) % len(self.queue)
-
-    def popleft(self):
-        value = self.queue[self.right]
-        self.queue[self.right] = None
-        self.right = (self.right + 1) % len(self.queue)
-        return value
+        self.left = (self.left - 1) % len(self.queue)
 
     def pop(self):
-        value = self.queue[self.left]
-        self.queue[self.left] = None
-        self.left = (self.left - 1) % len(self.queue)
+        """Pop an element from the left."""
+        value = self.queue[self.right-1]
+        self.queue[self.right-1] = None
+        self.right = (self.right - 1) % len(self.queue)
+        return value
+
+    def popleft(self):
+        """Pop an element from the right."""
+        value = self.queue[(self.left+1) % len(self.queue)]
+        self.queue[(self.left+1) % len(self.queue)] = None
+        self.left = (self.left + 1) % len(self.queue)
         return value
 
     def peek(self):
-        return self.queue[(self.right+1) % len(self.queue)]
+        """Peek an element to the right."""
+        return self.queue[(self.right-1) % len(self.queue)]
 
     def peekleft(self):
-        return self.queue[(self.left-1) % len(self.queue)]
+        """Peek an element to the left."""
+        return self.queue[(self.left+1) % len(self.queue)]
 
     def __len__(self):
         length = 0
@@ -55,11 +64,9 @@ class DequeIterator:
         return self
 
     def __next__(self):
-        length = len(self.queue)
-        index = 0
-        if index < length:
-            value = self.queue[index]
-            index += 1
-        else:
+        value = self.queue[(self.right) % len(self.queue)]
+        if self.right == self.left + len(self.queue) + 1:
             raise StopIteration
-        return value
+        else:
+            self.right = self.right + 1
+            return value

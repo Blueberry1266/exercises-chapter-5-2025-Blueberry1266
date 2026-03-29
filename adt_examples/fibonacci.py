@@ -3,6 +3,7 @@
 
 class Fib:
     """Fibonacci Sequence."""
+
     def __init__(self):
         self.first = 1
         self.second = 1
